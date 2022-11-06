@@ -1,4 +1,4 @@
-NAME = libft
+NAME = libft.a
 CC = gcc
 INC = libft.h
 CFLAGS = -Wall -Wextra -Werror
@@ -56,7 +56,7 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar $(ARFLAGS) $(NAME).a $(OBJS)
+	ar $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o: %.c $(INC)
 	$(CC) -c $< -o $@ $(CFLAGS)
@@ -65,10 +65,10 @@ clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	$(RM) $(NAME).a
+	$(RM) $(NAME)
 
 bonus: $(OBJS) $(OBJS_BONUS)
-	ar $(ARFLAGS) $(NAME).a $(OBJS) $(OBJS_BONUS)
+	ar $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
 
 re: fclean all
 
